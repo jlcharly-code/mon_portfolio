@@ -1,0 +1,58 @@
+THEME SWITCHER - QUICK REFERENCE
+
+HOW TO USE:
+  1. Click the moon/sun icon in the top-right corner of navbar
+  2. Page smoothly transitions to opposite theme
+  3. Your preference is automatically saved
+  4. Theme loads automatically on future visits
+
+WHAT YOU'LL SEE:
+  Light Mode → Click button → Dark Mode
+     |                          |
+  White bg              Dark background
+  Dark text             Light text
+  Clean look            High contrast look
+     |                          |
+    Moon icon switches to Sun icon
+
+KEY FEATURES:
+  ✅ Smooth 0.3s color transitions
+  ✅ No page reload needed
+  ✅ Works on all devices
+  ✅ High contrast colors
+  ✅ Button rotates on hover
+  ✅ Saves your preference
+
+FILES:
+  index.html    - Portfolio page with theme button
+  styles.css    - Light & dark theme colors
+  script.js     - Theme switching logic
+
+CUSTOMIZATION:
+  Change colors:    Edit CSS variables in styles.css
+  Adjust speed:     Change "0.3s" values in transitions
+  Move button:      Edit nav-actions styling in CSS
+  Modify colors:    Edit --color-name variables
+
+BROWSER SUPPORT:
+  ✅ Chrome 90+
+  ✅ Firefox 88+
+  ✅ Safari 14+
+  ✅ Edge 90+
+  ✅ All modern browsers
+
+TROUBLESHOOTING:
+  Button not working?    Check browser console for errors
+  Theme not saving?      Check if localStorage is enabled
+  Colors weird?          Clear browser cache and reload
+  Icons not showing?     Check Font Awesome CDN is loading
+
+MORE INFO:
+  See README_THEME_SWITCHER.md for complete documentation
+  See TESTING_GUIDE.md for testing instructions
+  See DESIGN_ALIGNMENT_REPORT.md for design details
+
+STATUS: ✅ READY TO USE
+
+All testing complete. Theme switcher is fully functional and production
+ready. Enjoy your new light/dark theme feature!
