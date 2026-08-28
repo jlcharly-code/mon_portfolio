@@ -7,12 +7,17 @@
         {% if project.image %}
         <img src="{{ project.image.url }}" width="100%">
         {% endif %}
+
+        {% if project.url %}
+         <a href="{{ project.url }}" target="_blank">Voir le projet en ligne</a>
+        {% endif %}
     </div>
+
     <div class="col-md-4">
-        <h5>About the project:</h5>
+        <h5>description:</h5>
         <p>{{ project.description }}</p>
         <br>
-        <h5>Technology used:</h5>
+        <h5>Technologie utilisée:</h5>
         <p>{{ project.technology }}</p>
     </div>
 </div>
