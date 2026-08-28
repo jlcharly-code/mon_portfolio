@@ -1,24 +1,26 @@
 {% extends "base.html" %}
 
 {% block page_content %}
-<h1>{{ project.title }}</h1>
-<div class="row">
-    <div class="col-md-8">
+<section class="projects">
+    <div class="project-card" style="max-width: 800px; margin: 0 auto;">
         {% if project.image %}
-        <img src="{{ project.image.url }}" width="100%">
+            <div class="project-image" style="height: 350px; background-image: url('{{ project.image.url }}');"></div>
         {% endif %}
+        <div class="project-content">
+            <h1 class="project-title">{{ project.title }}</h1>
 
-        {% if project.url %}
-         <a href="{{ project.url }}" target="_blank">Voir le projet en ligne</a>
-        {% endif %}
-    </div>
+            <div class="project-tags">
+                <span class="tag">{{ project.technology }}</span>
+            </div>
 
-    <div class="col-md-4">
-        <h5>description:</h5>
-        <p>{{ project.description }}</p>
-        <br>
-        <h5>Technologie utilisée:</h5>
-        <p>{{ project.technology }}</p>
+            <p class="project-description">{{ project.description }}</p>
+
+            {% if project.url %}
+                <a href="{{ project.url }}" target="_blank" class="cta-button">
+                    Voir le projet en ligne <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+            {% endif %}
+        </div>
     </div>
-</div>
+</section>
 {% endblock page_content %}

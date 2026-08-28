@@ -1,25 +1,26 @@
 {% extends "base.html" %}
 
 {% block page_content %}
-<h1>Mes réalisations</h1>
-<div class="row">
-{% for project in projects %}
-    <div class="col-md-4">
-        <div class="card mb-2">
-            {% if project.image %}
-                <img class="card-img-top" src="{{ project.image.url }}">
-            {% endif %}
-            
-            <div class="card-body">
-                <h5 class="card-title">{{ project.title }}</h5>
-                <p class="card-text">{{ project.description }}</p>
-                <a href="{% url 'project_detail' project.pk %}"
-                   class="btn btn-primary">
-                    Read More
-                </a>
+<section class="projects">
+    <h2 class="section-title">Toutes mes réalisations</h2>
+    <div class="projects-grid">
+        {% for project in projects %}
+            <div class="project-card">
+                {% if project.image %}
+                    <div class="project-image" style="background-image: url('{{ project.image.url }}');"></div>
+                {% endif %}
+                <div class="project-content">
+                    <h3 class="project-title">{{ project.title }}</h3>
+                    <p class="project-description">{{ project.description }}</p>
+                    <div class="project-tags">
+                        <span class="tag">{{ project.technology }}</span>
+                    </div>
+                    <a href="{% url 'project_detail' project.pk %}" class="project-link">
+                        Voir le projet <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
             </div>
-        </div>
+        {% endfor %}
     </div>
-    {% endfor %}
-</div>
-{% endblock %}
+</section>
+{% endblock page_content %}

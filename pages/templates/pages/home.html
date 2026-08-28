@@ -1,18 +1,69 @@
 {% extends "base.html" %}
 
 {% block page_content %}
-    <h1>Portfolio</h1>
 
+<section class="hero">
+    <div class="hero-content">
+        <h1 class="hero-title">Jean-Luc Charlier</h1>
+        <p class="hero-bio">Développeur passionné, depuis l'époque du langage machine</p>
+        <p class="hero-description">
+            De Multiplan aux frameworks modernes, une curiosité intacte pour apprendre
+            et construire — aujourd'hui avec Python, Django et Linux.
+        </p>
+        <a href="{% url 'project_index' %}" class="cta-button">Voir mes projets</a>
+    </div>
+    <div class="hero-image">
+        <div class="avatar-placeholder">
+            <i class="fa-solid fa-code"></i>
+        </div>
+    </div>
+</section>
+
+<section class="projects" id="projects">
+    <h2 class="section-title">Mes réalisations</h2>
     <div class="projects-grid">
         {% for project in projects %}
             <div class="project-card">
                 {% if project.image %}
-                    <img src="{{ project.image.url }}" alt="{{ project.title }}">
+                    <div class="project-image" style="background-image: url('{{ project.image.url }}');"></div>
                 {% endif %}
-                <h2>{{ project.title }}</h2>
-                <p>{{ project.description }}</p>
-                <a href="{% url 'project_detail' project.id %}">En savoir plus</a>
+                <div class="project-content">
+                    <h3 class="project-title">{{ project.title }}</h3>
+                    <p class="project-description">{{ project.description }}</p>
+                    <div class="project-tags">
+                        <span class="tag">{{ project.technology }}</span>
+                    </div>
+                    <a href="{% url 'project_detail' project.pk %}" class="project-link">
+                        Voir le projet <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
             </div>
         {% endfor %}
     </div>
+</section>
+
+<section class="contact" id="contact">
+    <h2 class="section-title">Contact</h2>
+    <p class="contact-subtitle">Une question, une idée de collaboration ? Écris-moi.</p>
+
+    {% if messages %}
+        {% for message in messages %}
+            <p style="text-align:center; color: var(--primary-color); font-weight: 600;">{{ message }}</p>
+        {% endfor %}
+    {% endif %}
+
+    <form method="post" class="contact-form">
+        {% csrf_token %}
+        <div class="form-group">
+            {{ form.name }}
+        </div>
+        <div class="form-group">
+            {{ form.email }}
+        </div>
+        <div class="form-group">
+            {{ form.message }}
+        </div>
+        <button type="submit" class="submit-button">Envoyer</button>
+    </form>
+</section>
 {% endblock page_content %}
