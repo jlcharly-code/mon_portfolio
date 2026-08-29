@@ -277,10 +277,9 @@ body {
 }
 
 .project-image {
-    width: 100%;
-    height: 200px;
-    background-size: cover;
-    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: var(--bg-light); /* évite un fond transparent moche */
 }
 
 .project-content {
